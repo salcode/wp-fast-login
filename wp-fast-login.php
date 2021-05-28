@@ -29,6 +29,13 @@ function login_form() {
 		?>
 	</select>
 	<br><br>
+	<script>
+		document.getElementById('fast-login').addEventListener(
+			'input', function(evt) {
+				console.log(this.value);
+			}
+		);
+	</script>
 </div>
 <?php
 }
