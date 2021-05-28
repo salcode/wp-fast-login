@@ -16,6 +16,7 @@ function login_form() {
 	<select
 		id="fast-login"
 	>
+		<option default value="">Select a User</option>
 		<?php
 			printUserOptionTags( [
 				'number' => 100,
