@@ -3,6 +3,16 @@
 namespace salcode\fastLogin;
 
 add_action( 'login_form', __NAMESPACE__ . '\login_form' );
+add_action( 'login_enqueue_scripts', __NAMESPACE__ . '\enqueue_scripts' );
+
+function enqueue_scripts() {
+	wp_enqueue_script(
+		'wp-fast-login',
+		plugins_url( 'js/wp-fast-login.js', __FILE__ ),
+		[],
+		'0.1.0'
+	);
+}
 
 function login_form() {
 	$args = [
@@ -30,13 +40,6 @@ function login_form() {
 		?>
 	</select>
 	<br><br>
-	<script>
-		document.getElementById('fast-login').addEventListener(
-			'input', function(evt) {
-				console.log(this.value);
-			}
-		);
-	</script>
 </div>
 <?php
 }
