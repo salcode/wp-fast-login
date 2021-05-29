@@ -25,6 +25,14 @@ function enqueue_scripts() {
 		[],
 		'0.1.0'
 	);
+	wp_localize_script(
+		'wp-fast-login',
+		'wpFastLogin',
+		[
+			'destination' => get_admin_url(),
+			'restUrl' => get_rest_url(),
+		]
+	);
 }
 
 function login_form() {
