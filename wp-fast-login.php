@@ -49,7 +49,7 @@ function printUserOptionTags( $args ) {
 	foreach ( $user_query->get_results() as $user ) {
 		printf(
 			'<option value="%d">%s</option>',
-			$user->id,
+			$user->ID,
 			$user->display_name
 		);
 	}
