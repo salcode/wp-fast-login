@@ -19,14 +19,8 @@ function add_rest_api_route() {
 }
 
 function enqueue_scripts() {
-	wp_enqueue_script(
-		'wp-fast-login',
-		plugins_url( 'js/wp-fast-login.js', __FILE__ ),
-		[],
-		'0.1.0'
-	);
 	wp_localize_script(
-		'wp-fast-login',
+		'wp-util',
 		'wpFastLogin',
 		[
 			'destination' => get_admin_url(),
@@ -62,6 +56,30 @@ function login_form() {
 	</select>
 	<br><br>
 </div>
+<script>
+document.getElementById('fast-login').addEventListener(
+  'input', async function(evt) {
+    if (! this.value) {
+      // No user selected. Return early with no changes.
+       return;
+    }
+    try {
+      const userId = await fetch(
+        `${wpFastLogin.restUrl}wp-fast-login/v1/login/${this.value}`,
+        { method: 'POST' }
+      ).then((response) => response.json())
+      .then((json) => json.userId);
+
+      if (! userId) {
+        throw new Error( 'Attempt to login failed' );
+      }
+      window.location.href = wpFastLogin.destination;
+    } catch (err) {
+      alert(err);
+    }
+  }
+);
+</script>
 <?php
 }
 
