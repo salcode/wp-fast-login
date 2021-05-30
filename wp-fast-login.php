@@ -16,6 +16,11 @@
 
 namespace salcode\fastLogin;
 
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
 add_action( 'login_form', __NAMESPACE__ . '\login_form' );
 add_action( 'login_enqueue_scripts', __NAMESPACE__ . '\enqueue_scripts' );
 add_action( 'rest_api_init', __NAMESPACE__ . '\add_rest_api_route');
