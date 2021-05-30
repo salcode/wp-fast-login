@@ -89,9 +89,10 @@ function printUserOptionTags( $args ) {
 	$user_query = new \WP_User_Query( $args );
 	foreach ( $user_query->get_results() as $user ) {
 		printf(
-			'<option value="%d">%s</option>',
+			'<option value="%d">%s (%s)</option>',
 			$user->ID,
-			$user->display_name
+			$user->user_login,
+			implode( ',', $user->roles )
 		);
 	}
 }
