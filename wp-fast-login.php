@@ -23,7 +23,9 @@ function enqueue_scripts() {
 		'wp-util',
 		'wpFastLogin',
 		[
-			'destination' => get_admin_url(),
+			'destination' =>
+				filter_input( INPUT_GET, 'redirect_to', FILTER_VALIDATE_URL ) ?:
+				get_admin_url(),
 			'restUrl' => get_rest_url(),
 		]
 	);
