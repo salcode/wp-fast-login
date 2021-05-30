@@ -37,7 +37,7 @@ function login_form() {
 	$user_query = new \WP_User_Query( $args );
 ?>
 <div>
-	<label for="fast-login">Choose account to fast login</label><br>
+	<label for="fast-login">Fast login</label><br>
 	<select
 		id="fast-login"
 	>
