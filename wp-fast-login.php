@@ -110,8 +110,8 @@ function print_user_option_tags( $args ) {
 		printf(
 			'<option value="%d">%s (%s)</option>',
 			$user->ID,
-			$user->user_login,
-			implode( ',', $user->roles )
+			esc_html( $user->user_login ),
+			esc_html( implode( ',', $user->roles ) )
 		);
 	}
 }
