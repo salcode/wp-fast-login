@@ -14,7 +14,7 @@
  * Domain Path:       /languages
  */
 
-namespace salcode\fastLogin;
+namespace salcode\FastLogin;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
