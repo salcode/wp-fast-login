@@ -64,12 +64,12 @@ function print_user_dropdown() {
 	>
 		<option default value="">Select a User</option>
 		<?php
-			printUserOptionTags( [
+			print_user_option_tags( [
 				'number' => 100,
 				'role' => 'Administrator'
 			]);
 
-			printUserOptionTags( [
+			print_user_option_tags( [
 				'number' => 100,
 				'role__not_in' => [ 'Administrator' ]
 			]);
@@ -104,7 +104,7 @@ document.getElementById('fast-login').addEventListener(
 <?php
 }
 
-function printUserOptionTags( $args ) {
+function print_user_option_tags( $args ) {
 	$user_query = new \WP_User_Query( $args );
 	foreach ( $user_query->get_results() as $user ) {
 		printf(
