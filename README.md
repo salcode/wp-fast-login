@@ -21,3 +21,7 @@ curl -O https://raw.githubusercontent.com/salcode/wp-fast-login/main/wp-fast-log
 ## Credits
 
 [Sal Ferrarello](https://salferrarello.com) / [@salcode](https://twitter.com/salcode)
+
+### Inspired By
+
+Inspired by ServerPress's [Bypass Login](https://serverpress.com/featuring-bypass-login/) plugin.
