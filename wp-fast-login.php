@@ -21,6 +21,12 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+if (
+	! function_exists( __NAMESPACE__ . '\print_user_dropdown' ) &&
+	! function_exists( __NAMESPACE__ . '\enqueue_scripts' ) &&
+	! function_exists( __NAMESPACE__ . '\add_rest_api_route' ) &&
+	! function_exists( __NAMESPACE__ . '\print_user_option_tags' )
+) {
 add_action( 'login_form', __NAMESPACE__ . '\print_user_dropdown' );
 add_action( 'login_enqueue_scripts', __NAMESPACE__ . '\enqueue_scripts' );
 add_action( 'rest_api_init', __NAMESPACE__ . '\add_rest_api_route');
@@ -114,4 +120,7 @@ function print_user_option_tags( $args ) {
 			esc_html( implode( ',', $user->roles ) )
 		);
 	}
+}
+} else {
+	error_log( 'The wp-fast-login plugin functions already exist, it is likely you are running this plugin twice (as a plugin and an mu-plugin).' );
 }
