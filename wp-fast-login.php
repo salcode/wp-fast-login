@@ -38,15 +38,14 @@ function add_rest_api_route() {
 }
 
 function enqueue_scripts() {
-	wp_localize_script(
+	wp_add_inline_script(
 		'wp-util',
-		'wpFastLogin',
-		[
+		'var wpFastLogin = ' . json_encode( [
 			'destination' =>
 				filter_input( INPUT_GET, 'redirect_to', FILTER_VALIDATE_URL ) ?:
 				get_admin_url(),
 			'restUrl' => get_rest_url(),
-		]
+		] )
 	);
 }
 
