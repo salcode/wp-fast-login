@@ -3,7 +3,7 @@
  * Plugin Name:       WP Fast Login
  * Plugin URI:        https://github.com/salcode/wp-fast-login/
  * Description:       Do NOT use this plugin on a production site. This plugin adds a drop-down menu on the login page for a fast login (without a password).
- * Version:           0.1.0
+ * Version:           0.2.0
  * Requires at least: 5.2
  * Requires PHP:      5.6
  * Author:            Sal Ferrarello
