@@ -44,6 +44,7 @@ if (
 	}
 
 	function enqueue_scripts() {
+		wp_enqueue_script( 'wp-util' );
 		wp_localize_script(
 			'wp-util',
 			'wpFastLogin',
